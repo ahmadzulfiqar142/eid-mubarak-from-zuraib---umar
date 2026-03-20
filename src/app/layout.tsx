@@ -13,20 +13,24 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_BASE_URL ||
+      "https://eid-mubarak-from-zuraib-umar.vercel.app/"
+  ),
   title: "Eid Mubarak - From Zuraib & Umar",
   description:
     "Eid Mubarak! Allah aap ki zindagi ko khushiyon, kamiyabiyon aur be shumaar barkaton se bhar de. From Zuraib bin Noman & Umar bin Noman.",
-  keywords: ["Eid Mubarak", "Eid Greetings", "Islamic Festival", "Blessings"],
   openGraph: {
     title: "Eid Mubarak - From Zuraib & Umar",
     description:
       "Eid Mubarak! Allah aap ki zindagi ko khushiyon aur barkaton se bhar de.",
     type: "website",
+    siteName: "Eid Mubarak",
     images: [
       {
         url: "/zuraib.png",
-        width: 1200,
-        height: 630,
+        width: 800,
+        height: 600,
         alt: "Eid Mubarak from Zuraib & Umar",
       },
     ],
@@ -46,11 +50,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
